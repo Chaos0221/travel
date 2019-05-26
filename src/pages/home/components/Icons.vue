@@ -10,7 +10,7 @@
                     <div class="icon-img">
                         <img 
                             class='icon-img-content' 
-                            src='@/assets/img/icons.png'
+                            :src='item.imgUrl'
                             alt=""
                         />
                     </div>
@@ -27,39 +27,13 @@
 
         data(){
             return{
-                iconList:[
-                    {
-                        id: '0001',
-                        imgUrl: '@/assets/img/icons.png'
-                    },
-                                    {
-                        id: '0002',
-                        imgUrl: '@/assets/img/icons.png'
-                    },                {
-                        id: '0003',
-                        imgUrl: '@/assets/img/icons.png'
-                    },                {
-                        id: '0004',
-                        imgUrl: '@/assets/img/icons.png'
-                    },                {
-                        id: '0005',
-                        imgUrl: '@/assets/img/icons.png'
-                    },                {
-                        id: '0006',
-                        imgUrl: '@/assets/img/icons.png'
-                    },                {
-                        id: '0007',
-                        imgUrl: '@/assets/img/icons.png'
-                    },                {
-                        id: '0008',
-                        imgUrl: '@/assets/img/icons.png'
-                    },                {
-                        id: '0009',
-                        imgUrl: '@/assets/img/icons.png'
-                    }
-                ],
-                 swiperOption:{}
+                 swiperOption:{
+                     autoplay: false
+                 }
             }
+        },
+        props:{
+            iconList:Array
         },
         computed: {
             pages(){

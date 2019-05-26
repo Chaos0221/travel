@@ -29,3 +29,7 @@
 ### mock
     只有static中的文件可以直接通过路径访问
     webpack-dev-server在config文件夹index.js中提供proxyTable接口 用来转发ajax请求路径
+
+### 轮播图 通过ajax获取图片数据 默认显示最后一张图
+    原因：请求开始前 swiperList是[] swiper组件根据空数组创建pagination
+    解决方法：v-if='swiperList.length'

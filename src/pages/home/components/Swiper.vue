@@ -1,18 +1,15 @@
 <template>
 <div class='wrapper'>
-  <swiper :options="swiperOption">
-    <!-- <swiper-slide v-for="item in swiperList" :key='item.id'>
-      <img :src="item.imgUrl" alt=''/>
-    </swiper-slide> -->
-    <swiper-slide>
-      <img src="@/assets/img/1.jpg" alt="" class='swiper-img'>
-    </swiper-slide>
-        <swiper-slide>
-      <img src="@/assets/img/2.jpg" alt="" class='swiper-img'>
+  <swiper :options="swiperOption" v-if='showSwiper'>
+    <swiper-slide v-for="item in swiperList" :key='item.id'>
+      <img 
+        :src="item.imgUrl" 
+        alt=''  
+        class='swiper-img'
+      />
     </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
   </swiper>  
-test
 </div>
 
 </template>
@@ -24,19 +21,18 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
-      },
-      swiperList:[
-        {
-          id:'0001',
-          imgUrl: '@/assets/img/1.jpg'
-        },
-        {
-          id:'0002',
-          imgUrl: '@/assets/img/2.jpg'
-        }
-      ]
+        loop: true,
+        autoplay:3000
+      }
     };
+  },
+  props:{
+    swiperList: Array
+  },
+  computed:{
+    showSwiper(){
+      return this.swiperList.length
+    }
   }
 };
 </script>
@@ -49,7 +45,7 @@ export default {
     overflow: hidden
     width: 100%
     height: 0
-    padding-bottom: 42.67%  
+    padding-bottom: 31.25%  
     // padding的百分比相对width 实现图片比例自适应
     background: #eee
     .swiper-img

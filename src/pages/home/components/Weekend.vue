@@ -10,11 +10,11 @@
       > -->
         <li        
             class="item border-bottom"
-            v-for="item of list"
+            v-for="item of weekendList"
             :key="item.id"
         >
             <div class='item-img-wrapper'>
-                <img class="item-img" src="@/assets/img/3.jpg" />
+                <img class="item-img" :src="item.imgUrl" alt=''/>
             </div>
             <div class="item-info">
                 <p class="item-title">{{item.title}}</p>
@@ -31,33 +31,12 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  // props: {
-  //   list: Array
-  // },
+  props: {
+    weekendList: Array
+  },
     data(){
         return {
-            list:[
-                {
-                  id: '001',
-                  title: '一个标题',
-                  desc: '一段描述'
-                },
-                                {
-                  id: '002',
-                  title: '一个标题',
-                  desc: '一段描述'
-                },
-                                {
-                  id: '003',
-                  title: '一个标题',
-                  desc: '一段描述'
-                },
-                                {
-                  id: '004',
-                  title: '一个标题',
-                  desc: '一段描述'
-                },
-            ]
+
         }
     }
 }
