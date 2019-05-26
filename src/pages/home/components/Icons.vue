@@ -1,10 +1,10 @@
 <template>
     <div class='icons'>
         <swiper :options="swiperOption">
-            <swiper-slide>
+            <swiper-slide v-for='(page,index) of pages' :key='index'>
                 <div 
                     class='icon' 
-                    v-for='item of iconList' 
+                    v-for='item of page' 
                     :key='item.id'
                 >
                     <div class="icon-img">

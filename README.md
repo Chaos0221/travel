@@ -21,3 +21,10 @@
     overflow: hidden
     white-space: nowrap
     text-overflow: ellipsis
+
+### slot
+    当子组件的某些内容需要被父组件定制时使用
+
+### 
+    只有static中的文件可以直接通过路径访问
+    webpack-dev-server在config文件夹index.js中提供proxyTable接口 用来转发ajax请求路径
