@@ -2,19 +2,25 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <router-link
+      <!-- <router-link
         tag="li"
         class="item border-bottom"
         v-for="item of list"
         :key="item.id"
-      >
-        <img class="item-img" :src="item.imgUrl" />
+      > -->
+      <li        
+        class="item border-bottom"
+        v-for="item of list"
+        :key="item.id">
+        <img class="item-img" src="@/assets/img/3.jpg" />
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
           <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
-        </div>
-      </router-link>
+        </div>        
+      </li>
+
+      <!-- </router-link> -->
     </ul>
   </div>
 </template>
@@ -22,13 +28,32 @@
 <script>
 export default {
   name: 'HomeRecommend',
-//   props: {
-//     list: Array
-//   }
+  // props: {
+  //   list: Array
+  // },
     data(){
         return {
             list:[
-                
+                {
+                  id: '001',
+                  title: '一个标题',
+                  desc: '一段描述'
+                },
+                                {
+                  id: '002',
+                  title: '一个标题',
+                  desc: '一段描述'
+                },
+                                {
+                  id: '003',
+                  title: '一个标题',
+                  desc: '一段描述'
+                },
+                                {
+                  id: '004',
+                  title: '一个标题',
+                  desc: '一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述'
+                },
             ]
         }
     }
