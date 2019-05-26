@@ -1,43 +1,57 @@
 <template>
-  <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
-    <!-- slides -->
-    <swiper-slide>I'm Slide 1</swiper-slide>
-    <swiper-slide>I'm Slide 2</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide>I'm Slide 4</swiper-slide>
-    <swiper-slide>I'm Slide 5</swiper-slide>
-    <swiper-slide>I'm Slide 6</swiper-slide>
-    <swiper-slide>I'm Slide 7</swiper-slide>
-    <!-- Optional controls -->
+<div class='wrapper'>
+  <swiper :options="swiperOption">
+    <!-- <swiper-slide v-for="item in swiperList" :key='item.id'>
+      <img :src="item.imgUrl" alt=''/>
+    </swiper-slide> -->
+    <swiper-slide>
+      <img src="@/assets/img/1.jpg" alt="" class='swiper-img'>
+    </swiper-slide>
+        <swiper-slide>
+      <img src="@/assets/img/2.jpg" alt="" class='swiper-img'>
+    </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-    <div class="swiper-scrollbar" slot="scrollbar"></div>
-  </swiper>
+  </swiper>  
+test
+</div>
+
 </template>
 
 <script>
 export default {
-  name: "carrousel",
+  name: "carousel",
   data() {
     return {
       swiperOption: {
-        // some swiper options/callbacks
-        // 所有的参数同 swiper 官方 api 参数
-        // ...
-      }
+        pagination: '.swiper-pagination',
+        loop: true
+      },
+      swiperList:[
+        {
+          id:'0001',
+          imgUrl: '@/assets/img/1.jpg'
+        },
+        {
+          id:'0002',
+          imgUrl: '@/assets/img/2.jpg'
+        }
+      ]
     };
-  },
-  computed: {
-    swiper() {
-      return this.$refs.mySwiper.swiper;
-    }
-  },
-  mounted() {
-    // current swiper instance
-    // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-    console.log("this is current swiper instance object", this.swiper);
-    this.swiper.slideTo(3, 1000, false);
   }
 };
 </script>
+
+<style lang='stylus' scoped>
+  // 让wrapper内的所有后代的.swiper...类生效
+  .wrapper >>> .swiper-pagination-bullet-active
+    background: #fff
+  .wrapper
+    overflow: hidden
+    width: 100%
+    height: 0
+    padding-bottom: 42.67%  
+    // padding的百分比相对width 实现图片比例自适应
+    background: #eee
+    .swiper-img
+      width: 100%
+</style>
